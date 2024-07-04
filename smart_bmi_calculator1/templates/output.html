@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diet Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            width: 100vw; /* Ensure the container spans the entire viewport width */
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%; /* Ensure the table fills the container */
+            max-width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 6px; /* Adjust padding to make cells more compact */
+            text-align: left;
+            font-size: 14px; /* Adjust font size for better fit */
+        }
+        .error {
+            color: red;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diet Chart</h1>
+        <div>
+            <h2>Input Details</h2>
+            <p>{{ input_details }}</p>
+        </div>
+        <div>
+            <h2>Diet Chart</h2>
+            {{ table_html|safe }}
+        </div>
+        {% if error_message %}
+        <div class="error">
+            <h2>Error</h2>
+            <p>{{ error_message }}</p>
+        </div>
+        {% endif %}
+        <a class="back-link" href="{{ url_for('input_form') }}">Back to Input Form</a>
+    </div>
+</body>
+</html>

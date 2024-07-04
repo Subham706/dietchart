@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diet Chart Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Details</h1>
+    <form action="{{ url_for('generate_diet_chart') }}" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" required><br>
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender" required><br>
+        <label for="weight">Weight (kg):</label><br>
+        <input type="number" id="weight" name="weight" required><br>
+        <label for="height">Height (cm):</label><br>
+        <input type="number" id="height" name="height" required><br>
+        <label for="dietary_preferences">Dietary Preferences:</label><br>
+        <input type="text" id="dietary_preferences" name="dietary_preferences"><br>
+        <label for="health_conditions">Health Conditions:</label><br>
+        <input type="text" id="health_conditions" name="health_conditions"><br>
+        <label for="goals">Goals:</label><br>
+        <input type="text" id="goals" name="goals"><br><br>
+        <input type="submit" value="Generate Diet Chart">
+    </form>
+</body>
+</html>
